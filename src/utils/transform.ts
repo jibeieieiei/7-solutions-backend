@@ -1,5 +1,5 @@
 import { User, DepartmentSummary } from '../types/userTypes'
-import lodash from 'lodash'
+import * as lodash from 'lodash'
 
 export function transform(users: User[]): Record<string, DepartmentSummary> {
   let result: Record<string, DepartmentSummary> = {}
@@ -25,11 +25,11 @@ export function transform(users: User[]): Record<string, DepartmentSummary> {
     const maxAge = user.reduce((max, user) => {
       return user.age > max ? user.age : max
     }, user[0].age)
-    const ageRange = `${minAge}-${maxAge}`
+    const ageRange = minAge === maxAge ? `${minAge}` : `${minAge}-${maxAge}`
 
     // hair
     const hair = user.reduce((acc: Record<string, number>, user) => {
-      const color = user.hair?.color ?? 'Unknown'
+      const color = user.hair.color
       acc[color] = (acc[color] || 0) + 1
       return acc
     }, {})
