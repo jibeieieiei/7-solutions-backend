@@ -2,6 +2,7 @@
 
 1. Install Node.Js this project work on version 20.19.0 https://nodejs.org/en/download
 2. Clone this git using .zip or `git clone https://github.com/jibeieieiei/7-solutions-backend.git`
+3. Install package using command `npm install`
 
 ### HOW TO TEST API
 
